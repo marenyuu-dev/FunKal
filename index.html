@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kalkulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="card">
+
+    <header>
+      <h1>FunKal</h1>
+      <p class="lead">Function Kalkulator</p>
+    </header>
+
+    <!-- Tab mode. Satu ketukan langsung pindah (tidak ada tombol hidup/mati) -->
+    <div class="tabs" id="tabs" role="tablist" aria-label="Mode kalkulator">
+      <button type="button" role="tab" data-mode="biasa" aria-selected="true">Biasa</button>
+      <button type="button" role="tab" data-mode="ilmiah" aria-selected="false">Ilmiah</button>
+    </div>
+
+    <!-- Layar: ekspresi dan hasil (diisi oleh script.js) -->
+    <div class="result typing" id="res" aria-live="polite">
+      <span class="e">0</span><span class="v"></span>
+    </div>
+
+    <!-- Tombol ilmiah (tersembunyi sampai tab "Ilmiah" dipilih; di layar lebar tampil di sisi kiri kartu) -->
+    <div class="sci" id="sci" hidden>
+      <button type="button" class="k s" data-k="(" aria-label="Buka kurung">(</button>
+      <button type="button" class="k s" data-k=")" aria-label="Tutup kurung">)</button>
+      <button type="button" class="k s" data-k="π" aria-label="Pi">π</button>
+      <button type="button" class="k s mode" id="mode" data-k="MODE" aria-label="Ganti satuan sudut">DEG</button>
+
+      <button type="button" class="k s" data-k="sin">sin</button>
+      <button type="button" class="k s" data-k="cos">cos</button>
+      <button type="button" class="k s" data-k="tan">tan</button>
+      <button type="button" class="k s" data-k="√" aria-label="Akar kuadrat">√</button>
+
+      <button type="button" class="k s" data-k="ln">ln</button>
+      <button type="button" class="k s" data-k="exp">exp</button>
+      <button type="button" class="k s" data-k="x²" aria-label="Kuadrat">x²</button>
+      <button type="button" class="k s" data-k="^" aria-label="Pangkat">xʸ</button>
+    </div>
+
+    <!-- Keypad. data-k = nilai tombol yang dikirim ke script.js -->
+    <div class="pad" id="pad">
+      <button type="button" class="k fn"  data-k="C"   aria-label="Hapus semua">C</button>
+      <button type="button" class="k fn"  data-k="DEL" aria-label="Hapus satu karakter">⌫</button>
+      <button type="button" class="k fn"  data-k="%"   aria-label="Persen">%</button>
+      <button type="button" class="k op"  data-k="÷"   aria-label="Bagi">÷</button>
+
+      <button type="button" class="k" data-k="7">7</button>
+      <button type="button" class="k" data-k="8">8</button>
+      <button type="button" class="k" data-k="9">9</button>
+      <button type="button" class="k op" data-k="×" aria-label="Kali">×</button>
+
+      <button type="button" class="k" data-k="4">4</button>
+      <button type="button" class="k" data-k="5">5</button>
+      <button type="button" class="k" data-k="6">6</button>
+      <button type="button" class="k op" data-k="−" aria-label="Kurang">−</button>
+
+      <button type="button" class="k" data-k="1">1</button>
+      <button type="button" class="k" data-k="2">2</button>
+      <button type="button" class="k" data-k="3">3</button>
+      <button type="button" class="k op" data-k="+" aria-label="Tambah">+</button>
+
+      <button type="button" class="k w2" data-k="0">0</button>
+      <button type="button" class="k" data-k="," aria-label="Koma desimal">,</button>
+      <button type="button" class="k eq" data-k="=" aria-label="Sama dengan">=</button>
+    </div>
+
+  </main>
+
+  <!-- Urutan penting: logic.js dulu, baru script.js -->
+  <script src="logic.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
